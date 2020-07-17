@@ -202,7 +202,7 @@ public class Test {
 }
 
 ```
-이후, Ctrl + 1 누르면 해당 기능 `javac.exe Test.java`  
+이후, Ctrl + 1 누르면  `javac.exe Test.java`  
 Ctrl + 2 누르면 `java.exe Test`
 
 
@@ -249,14 +249,147 @@ Window : GUI
 
 메모리를 기준으로, 메모리에 넣으면 입력, 메모리에서 나오면 출력  
 표준 입력은 키보드 (standard input), 표준 출력은 모니터 (standard output)  
-파일공유방법
- 소유자
-  폴더 공유 > 공유할 사람 선택
-  네트워크 및 인터넷 설정 열기 > 공유 옵션
-window+r > \\ip
 
-variable : 하나의 값을 저장하기 위한 공간  
-constant : 값을 한번만 저장할 수 있는 공간  
-literal : 그 자체로 값을 의미하는 것  
+### 파일공유방법
+공유하는사람
+
+1. 폴더 공유 > 공유할 사람 선택
+2. 네트워크 및 인터넷 설정 열기 > 공유 옵션
+
+공유받는사람
+
+`window+r > \\ip`
 
 보통 5시까지 수업하고, 마지막 1시간은 리뷰(라는 이름의 시험)하는 시간을 가질 예정
+
+---
+
+7/17
+
+
+
+# Chapter 2. Variable  
+
+변수를 선언할 때는 변수타입과 변수이름을 선언한다.  
+변수 타입은 변수에 저장될 값이 어떤 타입인지 지정하고, 변수이름은 말 그대로 변수에 붙인 이름이다.
+
+## 기본형 (Primitive type)
+built in 8개
+- 수치형
+	- 정수형
+		- 문자형 (char)
+		- 정수형 (byte, short, int, long)
+	- 실수형 (float, double)
+	- Boolean형 (boolean)
+- 무치형 
+	- void
+> String은 참조형에 속한다.
+
+## 참조형 (Reference)
+user-defined. 필요해서 유저가 만든것. API  
+class, interface, enum(나열)
+
+
+variable : 단 하나의 값을 저장하기 위한 메모리 공간  
+constant : 값을 한번만 저장할 수 있는 공간  
+literal : 그 자체로 값을 의미하는 것  
+value : 변수에 저장된 값	
+
+
+정수형 literal : 24  
+실수형 literal : 3.14  
+문자형 literal : 'A'  
+문자열형 literal : "AB"  
+
+### 정수형
+Integer : 4Byte  
+Long : 8Byte
+
+```Java
+/*
+	Literal
+	1. 정수형 Literal : +,-, 24(10진수), 24L(Long), 0234(8진수), 0xCAFE(16진수), 0b0111001(2진수)
+	2. 실수형 Literal : +,-, 3.14(실수데이터, 8바이트 double), 3.14f(4바이트 float), 3.14e-2(지수형데이터)
+	3. 문자형 Literal : 'A'(문자데이터), '\n'(escape sequence, 특수문자)
+	4. 문자열형 Literal : "강남구 역삼동 한독빌딩"
+	5. Boolean형 Literal : true, false
+
+*/
+```
+
+literal이 메모리에 저장되면 value가 된다.
+
+## 음수의 2진표현 - 2의 보수법
+4비트연산하기  
+#### 5 - 2
+5 + 2 = 7 // 0101 + 0010 = 0111  
+5 - 2 = 5 + (-2) = ?  
+> 1의 보수 : 0을 1로, 1을 0으로 만드는 것  
+> 2의 보수 : 1의 보수 + 1  
+
+-2 를 2진법으로 표현하는 과정
+1. 1101 (1의 보수)
+2. 1110 (2의 보수)
+
+5 + (-2) = 0101 + 1110 = 10011 = 0011 (오버플로우) = 3
+
+#### 15 - 8
+15 + (-8) = ?
+
+8 = 00001000  
+-8 = 11110111 + 1 = 11111000
+
+15 + (-8) = 00001111 + 11111000 = 100000111 = 00000111 (overflow) = 7
+
+맨앞의 비트를 음수를 위해 지정해준 경우를 signed 비트라고 한다.  
+반대로 음수가 아닌 경우에는 unsigned라고 한다.  
+4비트의 경우, signed의 범위는 -8~7, unsigned의 범위는 0~15다.  
+8비트의 경우, signed의 최대값은 01111111=127, 최소값은 -(127+1)=-128이다.  
+n비트, signed의 범위 : -2^(n-1) ~ 2^(n-1) -1  
+
+signed비트 = MSB
+
+CPU의 비트수가 높으면 메모리핸들링을 더 많이할 수 있다.  
+so, 메모리가 많으면 그 메모리를 다쓰기위해 cpu를 여러개 끼는 경우도 있다.
+
+## 실수형 - float, double
+실수자료형은 숫자의 범위보다 `정밀도`가 중요하다.  
+float: 단일정밀도,    
+double: 이중정밀도,  
+
+### 실수형의 저장형식
++-M * 2^E
+
+
+
+
+
+
+
+## 출력
+형식화된 출력 : printf()
+
+printf + 자료형 관련 자바 코드는 0717폴더에 저장!
+
+
+
+
+
+## 기타
+
+OCJP는 프로그래밍 지식 없어도 딸 수 있는 25만원짜리, 비교적 쉬운 자격증  
+public static String toBinaryString(int i) 뜻  
+String : 반환하는 자료형  
+int i : 입력하는 자료형  
+toBinaryString : 클래스가 하는 역할  
+static : 주소없이 찾아갈 수 있는 곳이라는 의미 (ex. 디즈니랜드) 대신 어디(클래스) 소속인지 말해줘야됨 (ex. 올랜도)  
+
+서버의 종류 : machine, os, program, service    
+
+[dropbox link](https://www.dropbox.com/home/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7)
+
+
+
+주말숙제
+
+1. character set 조사 + 손으로 쓰기
