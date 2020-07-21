@@ -2,7 +2,7 @@
 작성자 : 양영진
 작성목적 :
 작성일시 :
-작성환경 : OS, Version, Editor
+작성환경 : OS= Windows 10, Version= OpenJDK14, Editor= EditPlus
 */
 import java.util.Scanner;
 public class Quest {
