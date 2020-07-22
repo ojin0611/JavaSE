@@ -24,10 +24,10 @@ public class StaticVariableDemo {
 		System.out.println("나이 =" + svd.age);
 		*/
 
-		// System.out.println("가격 = " + price); //error. 다른클래스에 있다.
 
 		Product.price = 2500_0000;
-		System.out.println("가격 = " + Product.price); //error. 다른클래스에 있다.
+		// System.out.println("가격 = " + price); //error. 다른클래스에 있다.
+		System.out.println("가격 = " + Product.price); 
 	}
 }
 

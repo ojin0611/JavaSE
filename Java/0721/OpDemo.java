@@ -11,5 +11,6 @@ public class OpDemo {
 
 		String[] fruits = {"»ç°ú","¹è","µþ±â","º¹¼þ¾Æ"};
 		System.out.println(fruits[2]);
+		toBinaryString()
 	}
 }
