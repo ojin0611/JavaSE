@@ -23,7 +23,6 @@ public class Sorting {
 			}
 		}while (low<=high);
 		
-		System.out.printf("low = %d, high = %d\n",low,high);
 		if(start<high) quickSort(array, start, high);
 		if(low < end) quickSort(array, low, end);
 	}
