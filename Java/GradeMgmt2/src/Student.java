@@ -73,6 +73,14 @@ public class Student {
 		this.grade = grade;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("Student [name=%s, hakbun=%s, kor=%s, eng=%s, mat=%s, his=%s, tot=%s, avg=%s, grade=%s]",
+				name, hakbun, kor, eng, mat, his, tot, avg, grade);
+	}
+
+	
+	
 	public void print() {
 		System.out.printf("%s\t %s\t %d\t %d\t %d\t %d\t %d\t %.1f\t %c\n",
 				hakbun, name, kor, eng, mat, his, tot, avg, grade);
