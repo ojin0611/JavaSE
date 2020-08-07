@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Input {
@@ -12,25 +13,22 @@ public class Input {
 	public void input() {
 		Add add = new Add(array);
 		Search search = new Search(array);
-		Show show = new Show(array);
+		Show show = new Show();
 		
-		static int count = 0;
+		int count=0;
 		
 		do {
 			
-			System.out.print("1. 추가, 2. 검색, 3. 목록 보기 4. 종료 : ");
+			System.out.print("1. 추가, 2. 검색, 3. 목록보기 4. 종료 : ");
 			int no = scan.nextInt();
 
 			switch(no) {
-			case 1 : 
-				count++;
-				add.add(count); break;
-			case 2 : search.search(array); break;
-			case 3 : show.show(array); break;
+			case 1 : count++; add.add(count); break;
+			case 2 :	search.search(count); break;
+			case 3 : show.show(array, count); break;
 			default : System.exit(-1);
 			}
 			
 		} while( count<=10);
-	}
-	
+	}	
 }
