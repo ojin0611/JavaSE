@@ -1,10 +1,17 @@
 
 public class Output {
+	Telephone[] array;
+	
 
-	public void output(Telephone[] array) {
+	public Output(Telephone[] array) {
+		this.array = array;
+	}
+
+
+	public void output() {
 		for (Telephone phone: array) {
 			
-			phone.print();
+			System.out.println(phone);
 			
 		}
 	}

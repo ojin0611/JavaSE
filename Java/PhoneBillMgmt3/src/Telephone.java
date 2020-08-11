@@ -1,4 +1,4 @@
-public class Telephone {
+public class Telephone implements Comparable <Telephone>{
     private int kind;
     private String tel;
     private String name;
@@ -78,10 +78,20 @@ public class Telephone {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-    
-    public void print() {
-    	System.out.printf("%d\t%s\t%s\t%,d\t%,d\t%,d\t%,d\n",
+	
+	
+	@Override
+	public String toString() {
+		return String.format("%d\t%s\t%s\t%,d\t%,d\t%,d\t%,d",
     			this.kind, this.tel, this.name, this.gibon, this.sum, this.tax, this.fee);
-    }
+	}
+
+	@Override
+	public int compareTo(Telephone other) {
+		if(this.fee > other.fee) return 1;
+		else if(this.fee < other.fee) return -1;
+		else return 0;
+	}
+
 
 }

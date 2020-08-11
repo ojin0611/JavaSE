@@ -1,7 +1,16 @@
 
 public class Calc {
+	Telephone[] array;
+	
+	
 
-	public void calc(Telephone[] array) {
+	public Calc(Telephone[] array) {
+		this.array = array;
+	}
+
+
+
+	public void calc() {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < array.length; i++) {
 			Telephone phone = array[i];
