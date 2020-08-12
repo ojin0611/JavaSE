@@ -19,7 +19,7 @@ public class Input {
 	
 	
 	public void input() {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < array.length; i++) {
 			String line = this.scan.nextLine();
 			String[] dataArray = line.split("\\s+"); // 한칸이상의 스페이스바
 			int kind = Integer.parseInt(dataArray[0]);
