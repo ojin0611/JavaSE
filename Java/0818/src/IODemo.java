@@ -12,8 +12,7 @@ public class IODemo {
 			while(true) {
 				int su = is.read();  //ASCII code
 				if(su < 0 || (char)su == '\n') break;
-				else season += (char)su;
-				System.out.println(season);
+				else season += (char)su; // ASCII code 1개씩 추가
 			}
 			System.out.println("season = " + season);
 		} catch (IOException e) {
