@@ -16,7 +16,7 @@ public class ClientThread extends Thread {
 	private InetAddress client;
 	
 	public ClientThread(Socket socket) throws IOException { //생성자
-		this.socket = new Socket("211.63.89.157",8888);
+		this.socket = socket;
 		this.client = this.socket.getInetAddress();  //그 고객의 정보
 		System.out.println("[" + this.client.getHostAddress() + "] is connected.");
 		InputStream is = this.socket.getInputStream();

@@ -2,11 +2,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+/*
+ * 1. URL을 검사해서 MalformedURLException여부 판단
+ * 2. Stream 생성
+ * 3. URLConnection 객체 생성
+ */
+
 public class URLDemo {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter a URL : "); // 앞에  https:// 써줘야한다.
-		
+		System.out.print("Enter a URL : ");
 		String urlStr = scan.next();
 		URL url = null;
 		try {
@@ -20,8 +25,7 @@ public class URLDemo {
 			System.out.println("Reference : " + url.getRef());
 			System.out.println("Path : " + url.getPath());
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
-			System.out.println("잘못된 URL");
+			System.out.println("잘못된 URL 입니다.");
 		}
 	}
 }

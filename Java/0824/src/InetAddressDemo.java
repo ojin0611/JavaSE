@@ -8,11 +8,13 @@ public class InetAddressDemo {
 		System.out.print("Enter a host name : ");
 		String hostname = scan.next();
 		try {
-			InetAddress[] array = InetAddress.getAllByName(hostname);
-			for(InetAddress ia: array) {
-				System.out.println(hostname + "->" + ia.getHostAddress());
+			//InetAddress ia = InetAddress.getByName(hostname);
+			InetAddress [] array = InetAddress.getAllByName(hostname);
+			for(InetAddress ia : array) {
+				System.out.println(hostname + " -> " + ia.getHostAddress());
 			}
 		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

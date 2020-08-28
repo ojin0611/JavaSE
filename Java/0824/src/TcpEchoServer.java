@@ -9,23 +9,16 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- * @author : KIMHEEJIN
- * @date 2020. 8. 24.
- * @objective 
- * @environment : Windows 10pro/ OpenJDK14.0.2/ Eclipse 2020-06
- */
-
 public class TcpEchoServer {
 	private ServerSocket server;
 	private Socket socket;
-	private BufferedReader br; //socket이 먼저 생성되야 생성할 수 있어 //한글때문에 BufferedReader
-	private PrintWriter pw;//socket이 먼저 생성되야 생성할 수 있어 
+	private BufferedReader br;
+	private PrintWriter pw;
 	public TcpEchoServer() {
 		try {
 			this.server = new ServerSocket(8888);
 			System.out.println("Server is ready...");
-		} catch (IOException e) {//TCP는 Stream이라서 IOException발생
+		} catch (IOException e) {
 			System.out.println(e);
 		}
 	}
@@ -33,26 +26,25 @@ public class TcpEchoServer {
 		try {
 			this.socket = this.server.accept();
 			String clientAddress = this.socket.getInetAddress().getHostAddress();
-			System.out.println("["+clientAddress+"]Connection Success");
+			System.out.println("[" + clientAddress + "] Connection Success");
 			InputStream is = this.socket.getInputStream();
 			this.br = new BufferedReader(new InputStreamReader(is));
 			OutputStream out = this.socket.getOutputStream();
 			this.pw = new PrintWriter(new BufferedWriter(
-													new OutputStreamWriter(out)));
-			while(true) { //무한루프 돌면서 client를 기다려 while문이 try안에 있는게 좋아 try밖을 벗어나면 stop하니깐					
+															new OutputStreamWriter(out)));
+			while(true) {
 				String msg = this.br.readLine();
-				System.out.println("["+clientAddress+"]"+msg);
-					String sendMsg = "[From Server] : "+msg;//반송할 때
+				System.out.println("[" + clientAddress + "] " + msg);
+				String sendMsg = "[From Server] : " + msg;
 				this.pw.println(sendMsg);
-				this.pw.flush();//무한루프 도니까 flush()
+				this.pw.flush();
 			}
-		}catch(IOException e) {
-			System.out.println("Server Connection Closed");
+		} catch (IOException e) {
+			System.out.println("Client Connection was closed.");
 		}
-
 	}
 	public static void main(String[] args) {
-		TcpEchoServer tsd = new TcpEchoServer();
-		tsd.service();
+		TcpEchoServer tcp = new TcpEchoServer();
+		tcp.service();
 	}
 }
