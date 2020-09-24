@@ -1,0 +1,21 @@
+Model : 직접 Database와 연동한다. --> Data를 가지고 있는 layer
+          : 농부나 어부, 생산자, 집을 팔려고 하는 사람. 법원(판사), 주는 쪽
+          : 중고 물품을 팔려고 하는 사람, Back-end-Side
+DAO : Data Access Object
+View : User에 보여지는 화면 처리하는 layer -> UI layer
+       : 소비자, 집을 사려고 하는 사람. 피고, 받는 쪽, 벼룩시장, 중고품을 사려고 하는 사람
+       : UI-Side
+Controller : Model과 View를 연결하는 layer -> 중개자 layer
+       : 도소매업자, 쿠팡, 인터파크, G마켓, 쇼핑몰, 부동산 중개업자., 변호사나 검사, 연결하는 쪽
+       :  당근 마켓, 서비스 딴(Service-Side)
+vo : Value Object : 각 side 사이에 오고가는 데이터타입. cf)DTO
+DTO : Data Transaction Object
+Pattern
+
+UI <--> Controller(Service) <--> Model <--> RDBMS
+                               
+
+
+
+
+
